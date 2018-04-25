@@ -1,6 +1,6 @@
 'use strict';
 
-const { resolve, assetsPath, cssLoader } = require('./utils');
+const { resolve, assetsPath, cssLoader, vueLoaderConf } = require('./utils');
 
 module.exports = {
   context: resolve(),
@@ -28,12 +28,7 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: {
-            css: cssLoader(),
-            stylus: cssLoader('stylus')
-          }
-        }
+        options: vueLoaderConf
       },
       {
         test: /\.(js|vue)$/,

@@ -18,6 +18,7 @@ module.exports = merge(baseWebpackConf, {
     publicPath: '',
     filename: assetsPath('js/[name].[chunkhash].js')
   },
+  devtool: '#source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -38,6 +39,7 @@ module.exports = merge(baseWebpackConf, {
     }),
     new webpack.optimize.UglifyJsPlugin({
       parallel: true,
+      sourceMap: true,
       compress: {
         warnings: false
       }
@@ -46,7 +48,9 @@ module.exports = merge(baseWebpackConf, {
       filename: assetsPath('css/[name].[contenthash].css'),
       allChunks: true
     }),
-    new OptimizeCSSPlugin(),
+    new OptimizeCSSPlugin({
+      cssProcessorOptions: { safe: true, map: { inline: false } }
+    }),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
