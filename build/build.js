@@ -36,8 +36,11 @@ rm(resolve('dist'), err => {
 
     console.log(chalk.cyan('  Build complete.\n'));
     console.log(chalk.yellow(
-      '  Tip: built files are meant to be served over an HTTP server.\n' +
-      '  Opening index.html over file:// won\'t work.\n'
+      '  Tip: The build folder is ready to be deployed.\n' +
+      '  You may serve it with a static server:\n\n' +
+      '      npm install -g serve\n' +
+      '      serve -s build\n\n' +
+      '  Find out more about deployment here: http://bit.ly/2vY88Kr'
     ));
   });
 });
