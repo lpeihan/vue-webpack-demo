@@ -7,6 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const packageConfig = require('../package.json');
 const baseWebpackConf = require('./webpack.base.conf');
 const {
   resolve,
@@ -28,6 +29,7 @@ module.exports = merge(baseWebpackConf, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
+      title: packageConfig.name,
       favicon: resolve('favicon.ico'),
       inject: true,
       minify: {

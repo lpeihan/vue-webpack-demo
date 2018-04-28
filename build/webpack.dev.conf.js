@@ -42,12 +42,13 @@ module.exports = merge(baseWebpackConf, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': '"production"'
+        'NODE_ENV': '"development"'
       }
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
+      title: packageConfig.name,
       inject: true,
       favicon: resolve('favicon.ico')
     }),
