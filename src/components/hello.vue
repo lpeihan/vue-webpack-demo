@@ -1,32 +1,64 @@
 <template>
   <div class="hello">
-    {{msg}}
+    <search></search>
   </div>
 </template>
 
-<script>
-import store from '../vuex/store';
-import { mapState, mapMutations, mapGetters, mapActions } from 'vuex';
+<script lang="ts">
+// import Vue from 'vue';
+// import Component from 'vue-class-component';
+// import { Action, Getter } from 'vuex-class';
+// import _ from 'lodash';
+import { Search } from 'mint-ui';
+// import { noop } from '../utils';
+import utils from '../utils';
 
+// @Component
 export default {
-  store,
-  computed: {
-    ...mapState(['msg']),
-    ...mapGetters([])
+  components: {
+    Search
   },
-  methods: {
-    ...mapMutations([]),
-    ...mapActions([])
-  },
-  created() {
-    this.hello(); // mixins
+  mounted() {
+    console.log(utils.a);
   }
+  // name: string = 'lph';
+
+  // @Getter counter;
+
+  // @Action addCounter;
+
+  // components: {
+  //   Header
+  // };
+
+  // get getName(): string {
+  //   return `my name is ${this.name}`;
+  // }
+
+  // sayHello() {
+  //   console.log('hello');
+  // }
+
+  // useLodash() {
+  //   const users = [
+  //     { 'user': 'barney', 'active': false },
+  //     { 'user': 'fred', 'active': false },
+  //     { 'user': 'pebbles', 'active': true }
+  //   ];
+
+  //   return _.findIndex(users, function(o) { return o.user === 'fred'; });
+  // }
+
+  // mounted() {
+  //   this.sayHello();
+  //   console.log(this.useLodash());
+  // }
 };
 </script>
 
 <style lang="stylus">
-  @import "../styles/variables"
+@import '../styles/variables'
 
-  .hello
-    color: $primary
+.hello
+  color: $primary
 </style>

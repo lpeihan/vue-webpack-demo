@@ -5,7 +5,7 @@ const { resolve, assetsPath, cssLoader, vueLoaderConf } = require('./utils');
 module.exports = {
   context: resolve(),
   entry: {
-    app: './src/main.js'
+    app: './src/main.ts'
   },
   output: {
     path: resolve('dist'),
@@ -13,9 +13,10 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.ts', '.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src')
     }
   },
   module: {
@@ -29,6 +30,13 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConf
+      },
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
       },
       {
         test: /\.(js|vue)$/,

@@ -1,9 +1,12 @@
 import Vue from 'vue';
-import App from './app';
+import App from './app.vue';
 import router from './route';
-
+import store from './vuex/store';
+import 'mint-ui/lib/style.css';
 import './utils/axios';
-import './utils/mixin';
+import { hello } from './utils/test'
+
+hello()
 
 Vue.config.productionTip = false;
 
@@ -11,6 +14,7 @@ Vue.config.productionTip = false;
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 });

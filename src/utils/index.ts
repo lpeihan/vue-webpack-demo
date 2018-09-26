@@ -7,3 +7,12 @@ export function leftpad(str, len, ch = ' ') {
 
   return str;
 };
+
+
+export function noop() {
+  console.log('noop');
+}
+
+export default {
+  a: 1
+};
