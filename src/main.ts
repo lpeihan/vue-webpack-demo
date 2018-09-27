@@ -4,9 +4,6 @@ import router from './route';
 import store from './vuex/store';
 import 'mint-ui/lib/style.css';
 import './utils/axios';
-import { hello } from './utils/test'
-
-hello()
 
 Vue.config.productionTip = false;
 

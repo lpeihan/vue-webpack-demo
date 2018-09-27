@@ -54,13 +54,14 @@ module.exports = merge(baseWebpackConf, {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
         messages: [
-          `Your application is running here ${host}:${port}`
+          `Your application is running here http://${host}:${port}`
         ]
       },
-      onErrors: function(severity, errors) {
+      onErrors: function (severity, errors) {
         if (severity !== 'error') {
           return;
         }

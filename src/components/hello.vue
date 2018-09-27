@@ -11,15 +11,11 @@
 // import _ from 'lodash';
 import { Search } from 'mint-ui';
 // import { noop } from '../utils';
-import utils from '../utils';
 
 // @Component
 export default {
   components: {
     Search
-  },
-  mounted() {
-    console.log(utils.a);
   }
   // name: string = 'lph';
 
@@ -57,8 +53,4 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../styles/variables'
-
-.hello
-  color: $primary
 </style>
